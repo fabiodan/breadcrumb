@@ -87,6 +87,7 @@ function Breadcrumb(options) {
             remainingString = subsectionName.substr(separatorIndex + 1);
             setInputValue(remainingString);
             subsectionName = subsectionName.substr(0, separatorIndex);
+            setCursorPos(0);
 
             if (subsectionName !== "") {
 

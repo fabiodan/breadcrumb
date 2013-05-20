@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Breadcrumb</title>
+
+    <link rel="stylesheet" href="breadcrumb.css">
+</head>
+<body>
+
+<div id="breadcrumb">
+    <strong id="section-container"></strong>
+    <span id="subsections-container"></span>
+    <input id="breadcrumb-input" type="text" placeholder="Name your file...">
+</div>
+
+<script src="breadcrumb.js"></script>
+<script>
+
+var options = {
+    section: "section",
+    subsections: ["sub1", "sub2"],
+    fileName: "index.html",
+    callbacks: {
+        onInit: function() {
+            "use strict";
+
+            console.log("x--- onInit ---x");
+            console.log(this);
+            console.log(this.getPath());
+            console.log("x--------------x");
+            console.log("");
+        },
+        onInputKeyup: function(e) {
+            "use strict";
+
+            console.log("x--- onInputKeyup ---x");
+            console.log(this);
+            console.log(this.getPath());
+            console.log(e);
+            console.log(e.target);
+            console.log("x--------------------x");
+            console.log("");
+        },
+        afterAddSubsection: function() {
+            "use strict";
+
+            console.log("x--- afterAddSubsection ---x");
+            console.log(this);
+            console.log(this.getPath());
+            console.log("x--------------------------x");
+            console.log("");
+        },
+        afterRemoveSubsection: function() {
+            "use strict";
+
+            console.log("x--- afterRemoveSubsection ---x");
+            console.log(this);
+            console.log(this.getPath());
+            console.log("x-----------------------------x");
+            console.log("");
+        }        
+    }
+};
+
+var breadcrumb = new Breadcrumb(options);
+breadcrumb.init();
+
+</script>
+
+</body>
+</html>

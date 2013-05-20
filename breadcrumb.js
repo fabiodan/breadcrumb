@@ -5,24 +5,7 @@
     @since 2013-05-20
 
     @constructor Breadcrumb
-    @param {Object} options Breadcrumb's init options.
-        @param {String} options.section Section name.
-        @param {Array} options.subsections List of subsections.
-        @param {String} options.fileName File name. 
-        @param {Object} options.callbacks Callbacks available.
-            @param {Function} options.callbacks.onInit Callback invoked on initialization.
-            @param {Function} options.callbacks.onInputKeyup Callback invoked on keyup event.
-            @param {Function} options.callbacks.afterAddSubsection Callback invoked after a 
-                                                                   subsection is added.
-            @param {Function} options.callbacks.afterRemoveSubsection Callback invoked after a 
-                                                                      subsection is removed.
-Required markup:
-
-<div id="breadcrumb">
-    <strong id="section-container"></strong>
-    <span id="subsections-container"></span>
-    <input id="breadcrumb-input" type="text" placeholder="Name your file...">
-</div>
+    @param {Object} options Breadcrumb configuration options.
 **/
 function Breadcrumb(options) {
     "use strict";
@@ -39,6 +22,7 @@ function Breadcrumb(options) {
         callbacks = options.callbacks,
         that = this;
 
+
     /** 
         Binds all events on initialization.
 
@@ -47,6 +31,7 @@ function Breadcrumb(options) {
     function bindEvents() {
         input.addEventListener("keyup", checkTyping, false);
     }
+
 
     /** 
         Invokes methods based on user input. Basically it will add/remove 
@@ -91,6 +76,7 @@ function Breadcrumb(options) {
         evaluateCallback("onInputKeyup", [e]);
     }
 
+
     /** 
         Sets the breadcrumb's input value.
 
@@ -100,6 +86,7 @@ function Breadcrumb(options) {
     function setInputValue(value) {
         input.value = value;
     }
+
 
     /** 
         Builds the breadcrumb markup.
@@ -123,6 +110,7 @@ function Breadcrumb(options) {
         subsectionsContainer.innerHTML = html;
     }
 
+
     /** 
         Appends a subsection in the path.
 
@@ -135,6 +123,7 @@ function Breadcrumb(options) {
         evaluateCallback("afterAddSubsection");        
     }
 
+
     /** 
         Removes the last subsection in the path.
 
@@ -145,6 +134,7 @@ function Breadcrumb(options) {
         buildBreadcrumb();
         evaluateCallback("afterRemoveSubsection");                
     }
+
 
     /** 
         Sets cursor position on input elements.
@@ -171,6 +161,7 @@ function Breadcrumb(options) {
         }
     }
 
+
     /**
         Evaluates a callback supplied via "fn" parameter. The object context will be passed 
         to the callback as first paramater, enabling the use of "this" to invoke all public
@@ -189,6 +180,7 @@ function Breadcrumb(options) {
         return false;
     }
 
+
     /**
         Initializes the breadcrumb lib.
 
@@ -200,6 +192,7 @@ function Breadcrumb(options) {
         bindEvents();
         evaluateCallback("onInit");
     };
+
 
     /**
         Returns an object that contains information about

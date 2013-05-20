@@ -1,5 +1,8 @@
 /** 
-    Generates a Github's like breadcrumb.
+    Generates a Github-like breadcrumb.
+    @author Fabio Dan
+    @license MIT (http://www.opensource.org/licenses/mit-license.php)
+    @since 2013-05-20
 
     @constructor Breadcrumb
     @param {Object} options Breadcrumb's init options.

@@ -9,9 +9,9 @@ Required markup:
 
 ```html
 <div id="breadcrumb">
-    <strong id="section-container"></strong>
-    <span id="subsections-container"></span>
-    <input id="breadcrumb-input" type="text" placeholder="Name your file...">
+    <strong class="section-container"></strong>
+    <span class="subsections-container"></span>
+    <input class="breadcrumb-input" type="text" placeholder="Name your file...">
 </div>
 ```
 

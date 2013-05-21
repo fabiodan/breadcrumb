@@ -12,9 +12,10 @@ function Breadcrumb(options) {
 
     options = options || {};
 
-    var sectionContainer = document.getElementById("section-container"),
-        subsectionsContainer = document.getElementById("subsections-container"),
-        input = document.getElementById("breadcrumb-input"),
+    var container = document.getElementById(options.containerId || "breadcrumb"),
+        sectionContainer = container.getElementsByClassName("section-container")[0],
+        subsectionsContainer = container.getElementsByClassName("subsections-container")[0],
+        input = container.getElementsByClassName("breadcrumb-input")[0],
         cachedInputValue = input.value,
         section = options.section || "",
         subsections = (options.subsections instanceof Array) ? options.subsections : [],

@@ -21,7 +21,10 @@ All configuration values are optional. The default values are specified below.
 
 ```javascript
 var options = {
-  
+    
+    // {String} Breadcrumb container id. Defaults to "breadcrumb".
+    containerId: "container",
+
     // {String} Section name. Defaults to "".
     section: "section",
     

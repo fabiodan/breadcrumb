@@ -11,7 +11,7 @@
 <div id="breadcrumb">
     <strong class="section-container"></strong>
     <span class="subsections-container"></span>
-    <input class="breadcrumb-input" type="text" placeholder="Name your file...">
+    <input class="breadcrumb-input" type="text">
 </div>
 
 <script src="breadcrumb.js"></script>
@@ -22,6 +22,7 @@ var options = {
     section: "section",
     subsections: ["sub1", "sub2"],
     fileName: "index.html",
+    placeholder: "Name your file...",
     callbacks: {
         onInit: function() {
             "use strict";

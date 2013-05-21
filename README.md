@@ -11,7 +11,7 @@ Required markup:
 <div id="breadcrumb">
     <strong class="section-container"></strong>
     <span class="subsections-container"></span>
-    <input class="breadcrumb-input" type="text" placeholder="Name your file...">
+    <input class="breadcrumb-input" type="text">
 </div>
 ```
 
@@ -34,6 +34,9 @@ var options = {
     // {String} File name. Defaults to "".
     fileName: "index.html",
     
+    // {String} Input placeholder. Defaults to "".
+    placeholder: "Name your file...",
+
     // {Object} Callbacks object.
     callbacks: {
       

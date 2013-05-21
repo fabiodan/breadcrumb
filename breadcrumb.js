@@ -20,6 +20,7 @@ function Breadcrumb(options) {
         section = options.section || "",
         subsections = (options.subsections instanceof Array) ? options.subsections : [],
         fileName = options.fileName || "",
+        placeholder = options.placeholder || "",
         callbacks = options.callbacks,
         that = this;
 
@@ -190,6 +191,7 @@ function Breadcrumb(options) {
     this.init = function() {
         buildBreadcrumb();
         setInputValue(fileName);
+        input.setAttribute("placeholder", placeholder);
         bindEvents();
         evaluateCallback("onInit");
     };

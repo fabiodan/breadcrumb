@@ -1,9 +1,9 @@
-#breadcrumb #section-container a, 
-#breadcrumb #subsections-container a {
+#breadcrumb .section-container a, 
+#breadcrumb .subsections-container a {
     text-decoration: none;
 }
-#breadcrumb #section-container a:hover, 
-#breadcrumb #subsections-container a:hover {
+#breadcrumb .section-container a:hover, 
+#breadcrumb .subsections-container a:hover {
     text-decoration: underline;
 }
 #breadcrumb .separator {

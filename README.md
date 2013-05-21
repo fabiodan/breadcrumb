@@ -30,6 +30,9 @@ var options = {
     
     // {Array} List of subsections names. Defaults to [].
     subsections: ["sub1", "sub2"],
+
+    // {Boolean} Create links to section and subsections. Defaults to true.
+    createLinks: true,
     
     // {String} File name. Defaults to "".
     fileName: "index.html",

@@ -22,6 +22,7 @@ function Breadcrumb(options) {
         fileName = options.fileName || "",
         placeholder = options.placeholder || "",
         callbacks = options.callbacks,
+        createLinks = (options.createLinks === false) ? false : true,
         that = this;
 
 
@@ -100,13 +101,21 @@ function Breadcrumb(options) {
             html = "",
             href = section + "/";
 
-        sectionContainer.innerHTML = "<a href=\"" + href + "\">" + section + "</a>" + separator;
+        if (createLinks) {
+            sectionContainer.innerHTML = "<a href=\"" + href + "\">" + section + "</a>" + separator;    
+        } else {
+            sectionContainer.innerHTML = section + separator;
+        }        
 
         for (var i = 0; i < subsections.length; i++) {
             var subsection = subsections[i];
             href += subsection + "/";
 
-            html += "<a href=\"" + href + "\">" + subsection + "</a>" + separator;
+            if (createLinks) {
+                html += "<a class=\"subsection\" href=\"" + href + "\">" + subsection + "</a>" + separator;
+            } else {
+                html += "<span class=\"subsection\">" + subsection + "</span>" + separator;
+            }
         }
 
         subsectionsContainer.innerHTML = html;

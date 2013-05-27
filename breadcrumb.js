@@ -48,7 +48,7 @@ function Breadcrumb(options) {
             target = e.target,
             remainingString = "";
 
-        if (key === 191) { // Forward slash key.
+        if (key === 191 || key === 193) { // Forward slash key.
 
             var subsectionName = target.value,
                 separatorIndex = subsectionName.indexOf("/");

@@ -59,7 +59,7 @@ function Breadcrumb(options) {
             subsectionName = subsectionName.substr(0, separatorIndex);
             setCursorPos(0);
 
-            if (subsectionName !== "") {
+            if (subsectionName !== "" && (!/\s/.test(subsectionName))) {
 
                 addSubsection(subsectionName);
             }

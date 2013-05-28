@@ -14,11 +14,11 @@ function Breadcrumb(options) {
 
     var container = document.getElementById(options.containerId || "breadcrumb"),
         basePathContainer = container.getElementsByClassName("basepath-container")[0],
-        subsectionsContainer = container.getElementsByClassName("subsections-container")[0],
+        sectionsContainer = container.getElementsByClassName("sections-container")[0],
         input = container.getElementsByClassName("breadcrumb-input")[0],
         cachedInputValue = "",
         basePath = options.basePath || "",
-        subsections = (options.subsections instanceof Array) ? options.subsections : [],
+        sections = (options.sections instanceof Array) ? options.sections : [],
         fileName = options.fileName || "",
         placeholder = options.placeholder || "",
         callbacks = options.callbacks,
@@ -51,25 +51,25 @@ function Breadcrumb(options) {
 
         if (separatorIndex > -1) { // Forward slash key.
 
-            var subsectionName = targetValue.substr(0, separatorIndex);
+            var sectionName = targetValue.substr(0, separatorIndex);
             remainingString = targetValue.substr(separatorIndex + 1);
             setInputValue(remainingString);
             setCursorPos(0);
 
-            if (subsectionName !== "" && (!/\s/.test(subsectionName))) {
+            if (sectionName !== "" && (!/\s/.test(sectionName))) {
 
-                addSubsection(subsectionName);
+                addSection(sectionName);
             }
         } else if (e.keyCode === 8) { // Delete key.
 
-            if (subsections.length > 0 && targetValue === cachedInputValue) {
+            if (sections.length > 0 && targetValue === cachedInputValue) {
 
-                var lastSubsectionName = subsections[subsections.length - 1];
+                var lastSectionName = sections[sections.length - 1];
 
                 remainingString = targetValue;
-                setInputValue(lastSubsectionName + remainingString);
-                setCursorPos(lastSubsectionName.length);
-                removeSubsection();
+                setInputValue(lastSectionName + remainingString);
+                setCursorPos(lastSectionName.length);
+                removeSection();
             }
         }
 
@@ -107,43 +107,43 @@ function Breadcrumb(options) {
             basePathContainer.innerHTML = basePath + separator;
         }        
 
-        for (var i = 0; i < subsections.length; i++) {
-            var subsection = subsections[i];
-            href += subsection + "/";
+        for (var i = 0; i < sections.length; i++) {
+            var section = sections[i];
+            href += section + "/";
 
             if (createLinks) {
-                html += "<a class=\"subsection\" href=\"" + href + "\">" + subsection + "</a>" + separator;
+                html += "<a class=\"section\" href=\"" + href + "\">" + section + "</a>" + separator;
             } else {
-                html += "<span class=\"subsection\">" + subsection + "</span>" + separator;
+                html += "<span class=\"section\">" + section + "</span>" + separator;
             }
         }
 
-        subsectionsContainer.innerHTML = html;
+        sectionsContainer.innerHTML = html;
     }
 
 
     /** 
-        Appends a subsection in the path.
+        Appends a section in the path.
 
-        @method addSubsection
-        @subsectionName {String} Subsection name to be added.
+        @method addSection
+        @sectionName {String} Section name to be added.
     **/
-    function addSubsection(subsectionName) {
-        subsections.push(subsectionName);
+    function addSection(sectionName) {
+        sections.push(sectionName);
         buildBreadcrumb();
-        evaluateCallback("afterAddSubsection");        
+        evaluateCallback("afterAddSection");        
     }
 
 
     /** 
-        Removes the last subsection in the path.
+        Removes the last section in the path.
 
-        @method removeSubsection
+        @method removeSection
     **/
-    function removeSubsection() {
-        subsections.pop();
+    function removeSection() {
+        sections.pop();
         buildBreadcrumb();
-        evaluateCallback("afterRemoveSubsection");                
+        evaluateCallback("afterRemoveSection");                
     }
 
 
@@ -209,7 +209,7 @@ function Breadcrumb(options) {
 
     /**
         Returns an object that contains information about
-        the current base path, subsections and file name.
+        the current base path, sections and file name.
 
         @method getPath
         @return {Object} A path object.
@@ -217,7 +217,7 @@ function Breadcrumb(options) {
     this.getPath = function() {
         var path = {
             basePath: basePath,
-            subsections: subsections,
+            sections: sections,
             fileName: input.value
         };
 

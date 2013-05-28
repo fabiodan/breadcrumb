@@ -9,8 +9,8 @@ Required markup:
 
 ```html
 <div id="breadcrumb">
-    <strong class="section-container"></strong>
-    <span class="subsections-container"></span>
+    <span class="basepath-container"></span>
+    <span class="sections-container"></span>
     <input class="breadcrumb-input" type="text">
 </div>
 ```
@@ -26,12 +26,12 @@ var options = {
     containerId: "container",
 
     // {String} Section name. Defaults to "".
-    section: "section",
+    basePath: "basepath",
     
-    // {Array} List of subsections names. Defaults to [].
-    subsections: ["sub1", "sub2"],
+    // {Array} List of sections names. Defaults to [].
+    sections: ["section1", "section2"],
 
-    // {Boolean} Create links to section and subsections. Defaults to true.
+    // {Boolean} Create links to section and sections. Defaults to true.
     createLinks: true,
     
     // {String} File name. Defaults to "".
@@ -52,13 +52,13 @@ var options = {
         // One parameter, e, is an object event passed to the function.
         onInputKeyup: function(e) {},
         
-        // {Function} Callback invoked after a subsection is added. 
+        // {Function} Callback invoked after a section is added. 
         // The this keyword refers to the breadcrumb instance.
-        afterAddSubsection: function() {},
+        afterAddSection: function() {},
         
-        // {Function} Callback invoked after a subsection is removed.
+        // {Function} Callback invoked after a section is removed.
         // The this keyword refers to the breadcrumb instance.
-        afterRemoveSubsection: function() {}        
+        afterRemoveSection: function() {}        
     }
 };
 ```

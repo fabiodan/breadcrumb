@@ -10,7 +10,7 @@
 
 <div id="breadcrumb">
     <span class="basepath-container"></span>
-    <span class="subsections-container"></span>
+    <span class="sections-container"></span>
     <input class="breadcrumb-input" type="text">
 </div>
 
@@ -20,7 +20,7 @@
 var options = {
     containerId: "breadcrumb",
     basePath: "basepath",
-    subsections: ["sub1", "sub2"],
+    sections: ["section1", "section2"],
     createLinks: true,
     fileName: "index.html",
     placeholder: "Name your file...",
@@ -45,19 +45,19 @@ var options = {
             console.log("x--------------------x");
             console.log("");
         },
-        afterAddSubsection: function() {
+        afterAddSection: function() {
             "use strict";
 
-            console.log("x--- afterAddSubsection ---x");
+            console.log("x--- afterAddSection ---x");
             console.log(this);
             console.log(this.getPath());
             console.log("x--------------------------x");
             console.log("");
         },
-        afterRemoveSubsection: function() {
+        afterRemoveSection: function() {
             "use strict";
 
-            console.log("x--- afterRemoveSubsection ---x");
+            console.log("x--- afterRemoveSection ---x");
             console.log(this);
             console.log(this.getPath());
             console.log("x-----------------------------x");

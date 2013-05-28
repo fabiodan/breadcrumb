@@ -1,9 +1,9 @@
 #breadcrumb .basepath-container a, 
-#breadcrumb .subsections-container a {
+#breadcrumb .sections-container a {
     text-decoration: none;
 }
 #breadcrumb .basepath-container a:hover, 
-#breadcrumb .subsections-container a:hover {
+#breadcrumb .sections-container a:hover {
     text-decoration: underline;
 }
 #breadcrumb .basepath-container a {
@@ -22,7 +22,7 @@
     font-size: 18px;
 }
 #breadcrumb .basepath-container a, 
-#breadcrumb .subsections-container a {
+#breadcrumb .sections-container a {
     color: #4183c4;
 }
 #breadcrumb .separator {

@@ -16,7 +16,7 @@ function Breadcrumb(options) {
         sectionContainer = container.getElementsByClassName("section-container")[0],
         subsectionsContainer = container.getElementsByClassName("subsections-container")[0],
         input = container.getElementsByClassName("breadcrumb-input")[0],
-        cachedInputValue = input.value,
+        cachedInputValue = "",
         section = options.section || "",
         subsections = (options.subsections instanceof Array) ? options.subsections : [],
         fileName = options.fileName || "",
@@ -46,12 +46,12 @@ function Breadcrumb(options) {
     function checkTyping(e) {
         var key = e.keyCode,
             target = e.target,
-            remainingString = "";
+            remainingString = "",
+            separatorIndex = input.value.indexOf("/");
 
-        if (key === 191 || key === 193) { // Forward slash key.
+        if (separatorIndex > -1) { // Forward slash key.
 
-            var subsectionName = target.value,
-                separatorIndex = subsectionName.indexOf("/");
+            var subsectionName = target.value;
 
             remainingString = subsectionName.substr(separatorIndex + 1);
             setInputValue(remainingString);
@@ -200,6 +200,7 @@ function Breadcrumb(options) {
     this.init = function() {
         buildBreadcrumb();
         setInputValue(fileName);
+        cachedInputValue = input.value;
         input.setAttribute("placeholder", placeholder);
         bindEvents();
         evaluateCallback("onInit");

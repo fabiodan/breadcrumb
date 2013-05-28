@@ -45,31 +45,28 @@ function Breadcrumb(options) {
         @param {Object} e Event object.
     **/
     function checkTyping(e) {
-        var key = e.keyCode,
-            target = e.target,
+        var targetValue = e.target.value,
             remainingString = "",
-            separatorIndex = input.value.indexOf("/");
+            separatorIndex = targetValue.indexOf("/");
 
         if (separatorIndex > -1) { // Forward slash key.
 
-            var subsectionName = target.value;
-
-            remainingString = subsectionName.substr(separatorIndex + 1);
+            var subsectionName = targetValue.substr(0, separatorIndex);
+            remainingString = targetValue.substr(separatorIndex + 1);
             setInputValue(remainingString);
-            subsectionName = subsectionName.substr(0, separatorIndex);
             setCursorPos(0);
 
             if (subsectionName !== "" && (!/\s/.test(subsectionName))) {
 
                 addSubsection(subsectionName);
             }
-        } else if (key === 8) { // Delete key.
+        } else if (e.keyCode === 8) { // Delete key.
 
-            if (subsections.length > 0 && target.value === cachedInputValue) {
+            if (subsections.length > 0 && targetValue === cachedInputValue) {
 
                 var lastSubsectionName = subsections[subsections.length - 1];
 
-                remainingString = target.value;
+                remainingString = targetValue;
                 setInputValue(lastSubsectionName + remainingString);
                 setCursorPos(lastSubsectionName.length);
                 removeSubsection();
@@ -77,7 +74,7 @@ function Breadcrumb(options) {
         }
 
         if (e.type === "keyup") {
-            cachedInputValue = target.value;
+            cachedInputValue = targetValue;
             evaluateCallback("onInputKeyup", [e]);
         }        
     }

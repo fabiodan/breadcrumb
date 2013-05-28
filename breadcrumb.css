@@ -1,12 +1,12 @@
-#breadcrumb .section-container a, 
+#breadcrumb .basepath-container a, 
 #breadcrumb .subsections-container a {
     text-decoration: none;
 }
-#breadcrumb .section-container a:hover, 
+#breadcrumb .basepath-container a:hover, 
 #breadcrumb .subsections-container a:hover {
     text-decoration: underline;
 }
-#breadcrumb .section-container a {
+#breadcrumb .basepath-container a {
     font-weight: bold;
 }
 #breadcrumb .separator {
@@ -21,7 +21,7 @@
 #breadcrumb {
     font-size: 18px;
 }
-#breadcrumb .section-container a, 
+#breadcrumb .basepath-container a, 
 #breadcrumb .subsections-container a {
     color: #4183c4;
 }

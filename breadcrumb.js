@@ -13,11 +13,11 @@ function Breadcrumb(options) {
     options = options || {};
 
     var container = document.getElementById(options.containerId || "breadcrumb"),
-        sectionContainer = container.getElementsByClassName("section-container")[0],
+        basePathContainer = container.getElementsByClassName("basepath-container")[0],
         subsectionsContainer = container.getElementsByClassName("subsections-container")[0],
         input = container.getElementsByClassName("breadcrumb-input")[0],
         cachedInputValue = "",
-        section = options.section || "",
+        basePath = options.basePath || "",
         subsections = (options.subsections instanceof Array) ? options.subsections : [],
         fileName = options.fileName || "",
         placeholder = options.placeholder || "",
@@ -99,12 +99,12 @@ function Breadcrumb(options) {
     function buildBreadcrumb() {
         var separator = "<span class=\"separator\"> / </span>",
             html = "",
-            href = section + "/";
+            href = basePath + "/";
 
         if (createLinks) {
-            sectionContainer.innerHTML = "<a href=\"" + href + "\">" + section + "</a>" + separator;    
+            basePathContainer.innerHTML = "<a href=\"" + href + "\">" + basePath + "</a>" + separator;    
         } else {
-            sectionContainer.innerHTML = section + separator;
+            basePathContainer.innerHTML = basePath + separator;
         }        
 
         for (var i = 0; i < subsections.length; i++) {
@@ -209,14 +209,14 @@ function Breadcrumb(options) {
 
     /**
         Returns an object that contains information about
-        the current section, subsections and file name.
+        the current base path, subsections and file name.
 
         @method getPath
         @return {Object} A path object.
     **/
     this.getPath = function() {
         var path = {
-            section: section,
+            basePath: basePath,
             subsections: subsections,
             fileName: input.value
         };

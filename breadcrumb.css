@@ -6,11 +6,14 @@
 #breadcrumb .subsections-container a:hover {
     text-decoration: underline;
 }
+#breadcrumb .section-container a {
+    font-weight: bold;
+}
 #breadcrumb .separator {
     font-weight: normal;
 }
 
-/* Github style
+ /*Github style*/
 body, input, select, textarea, button {
     font: 13px Helvetica, arial, sans-serif;
 }
@@ -18,15 +21,15 @@ body, input, select, textarea, button {
 #breadcrumb {
     font-size: 18px;
 }
-#breadcrumb #section-container a, 
-#breadcrumb #subsections-container a {
+#breadcrumb .section-container a, 
+#breadcrumb .subsections-container a {
     color: #4183c4;
 }
 #breadcrumb .separator {
     font-size: 18px;
     color: #999;
 }
-#breadcrumb #breadcrumb-input {
+#breadcrumb .breadcrumb-input {
     padding: 6px 7px;
     font-size: 16px;
     color: #444;
@@ -37,4 +40,3 @@ body, input, select, textarea, button {
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
     box-sizing: border-box;
 }
-*/

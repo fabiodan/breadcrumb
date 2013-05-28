@@ -32,6 +32,7 @@ function Breadcrumb(options) {
         @method bindEvents
     **/
     function bindEvents() {
+        input.addEventListener("input", checkTyping, false);
         input.addEventListener("keyup", checkTyping, false);
     }
 
@@ -75,8 +76,10 @@ function Breadcrumb(options) {
             }
         }
 
-        cachedInputValue = target.value;
-        evaluateCallback("onInputKeyup", [e]);
+        if (e.type === "keyup") {
+            cachedInputValue = target.value;
+            evaluateCallback("onInputKeyup", [e]);
+        }        
     }
 
 

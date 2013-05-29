@@ -19,6 +19,7 @@ function Breadcrumb(options) {
         cachedInputValue = "",
         basePath = (options.basePath instanceof Array) ? options.basePath : [],
         sections = (options.sections instanceof Array) ? options.sections : [],
+        validPattern = options.validPattern || /^[a-zA-Z0-9_-]*$/,
         fileName = options.fileName || "",
         placeholder = options.placeholder || "",
         callbacks = options.callbacks,
@@ -56,7 +57,8 @@ function Breadcrumb(options) {
             setInputValue(remainingString);
             setCursorPos(0);
 
-            if (sectionName !== "" && (!/\s/.test(sectionName))) {
+            if (sectionName !== "" && (!/\s/.test(sectionName)) 
+                                   && (validPattern.test(sectionName))) {
 
                 addSection(sectionName);
             }

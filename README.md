@@ -36,6 +36,9 @@ var options = {
     
     // {String} File name. Defaults to "".
     fileName: "index.html",
+
+    // {String} Pattern to validate section name. Defaults to /^[a-zA-Z0-9_-]*$/.
+    validPattern: /^[a-zA-Z0-9_-]*$/,
     
     // {String} Input placeholder. Defaults to "".
     placeholder: "Name your file...",

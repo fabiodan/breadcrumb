@@ -25,8 +25,8 @@ var options = {
     // {String} Breadcrumb container id. Defaults to "breadcrumb".
     containerId: "container",
 
-    // {String} Section name. Defaults to "".
-    basePath: "basepath",
+    // {Array} Section name. Defaults to [].
+    basePath: ["base", "path"],
     
     // {Array} List of sections names. Defaults to [].
     sections: ["section1", "section2"],

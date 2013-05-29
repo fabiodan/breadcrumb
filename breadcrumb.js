@@ -17,7 +17,7 @@ function Breadcrumb(options) {
         sectionsContainer = container.getElementsByClassName("sections-container")[0],
         input = container.getElementsByClassName("breadcrumb-input")[0],
         cachedInputValue = "",
-        basePath = options.basePath || "",
+        basePath = (options.basePath instanceof Array) ? options.basePath : [],
         sections = (options.sections instanceof Array) ? options.sections : [],
         fileName = options.fileName || "",
         placeholder = options.placeholder || "",
@@ -99,13 +99,24 @@ function Breadcrumb(options) {
     function buildBreadcrumb() {
         var separator = "<span class=\"separator\"> / </span>",
             html = "",
-            href = basePath + "/";
+            href = "";
 
-        if (createLinks) {
-            basePathContainer.innerHTML = "<a href=\"" + href + "\">" + basePath + "</a>" + separator;    
-        } else {
-            basePathContainer.innerHTML = basePath + separator;
-        }        
+        if (basePath.length > 0) {
+
+            for (var i = 0; i < basePath.length; i++) {
+                var basePathSection = basePath[i];
+                href += basePathSection + "/";
+
+                if (createLinks) {
+                    html += "<a class=\"section\" href=\"" + href + "\">" + basePathSection + "</a>" + separator;
+                } else {
+                    html += "<span class=\"section\">" + basePathSection + "</span>" + separator;
+                }
+            }
+
+            basePathContainer.innerHTML = html;
+            html = "";
+        }
 
         for (var i = 0; i < sections.length; i++) {
             var section = sections[i];
